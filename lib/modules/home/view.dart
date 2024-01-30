@@ -1,3 +1,4 @@
+import 'package:arosa_je/modules/map/view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -21,7 +22,7 @@ class _HomeViewState extends ConsumerState<HomeView> {
         children: [
           const Column(
             children: [
-              //MapView(),
+              MapView(),
             ],
           ),
           Positioned(

@@ -89,6 +89,8 @@ class _LoginViewState extends ConsumerState<LoginView> {
                                 if (_formKey.currentState?.validate() ??
                                     false) {
                                   //TODO do something
+                                  //TODO remove this
+                                  context.goNamed(AppRoute.home.name);
                                 }
                                 FocusManager.instance.primaryFocus?.unfocus();
                               }
