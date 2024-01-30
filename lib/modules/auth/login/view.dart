@@ -1,11 +1,7 @@
-import 'dart:io';
-
 import 'package:arosa_je/core/core.dart';
-import 'package:arosa_je/modules/app/session_manager.dart';
-import 'package:arosa_je/modules/auth/login/model/auth_alert_message.dart';
+import 'package:arosa_je/core/theme/app_spacing.dart';
 import 'package:arosa_je/modules/auth/login/notifier.dart';
 import 'package:arosa_je/router/router.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -31,16 +27,15 @@ class _LoginViewState extends ConsumerState<LoginView> {
 
   @override
   Widget build(BuildContext context) {
-    final colors = ref.watch(appColorThemeProvider);
-    final spacings = ref.watch(spacingThemeProvider);
-    final radius = ref.watch(radiusThemeProvider);
+    final spacings = ref.read(spacingThemeProvider);
     final coreL10n = context.coreL10n;
+    final loginForm = ref.watch(loginFormProvider);
 
     return Scaffold(
       body: Center(
         child: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: spacings.small),
+            padding: const EdgeInsets.symmetric(horizontal: 8.0),
             child: Form(
               key: _formKey,
               child: Column(
@@ -56,22 +51,63 @@ class _LoginViewState extends ConsumerState<LoginView> {
                         fontWeight: FontWeight.bold),
                   ),
                   const AppGap.xxl(),
-                  Text(coreL10n.signinSentence1,
-                      style: TextStyle(color: colors.textfieldlabel)),
+                  Text(
+                    coreL10n.signinSentence1,
+                  ),
                   const AppGap.xs(),
+                  TextFormField(
+                    controller: _login,
+                    onChanged: (value) {
+                      ref.read(loginFormProvider.notifier).setUsername(value);
+                    },
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      labelText: coreL10n.signinUsername,
+                      labelStyle: const TextStyle(color: Colors.black),
+                      hintText: coreL10n.signinUsernameSentence,
+                    ),
+                  ),
                   const AppGap.small(),
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: spacings.xs),
                     child: SizedBox(
                       width: double.infinity,
                       height: spacings.large,
+                      child: FilledButton(
+                        style: ButtonStyle(
+                          backgroundColor: loginForm.isButtonActive
+                              ? MaterialStateProperty.all(Colors.green)
+                              : null,
+                        ),
+                        onPressed: loginForm.isButtonActive
+                            ? () {
+                                if (_formKey.currentState?.validate() ??
+                                    false) {
+                                  //TODO do something
+                                }
+                                FocusManager.instance.primaryFocus?.unfocus();
+                              }
+                            : null,
+                        child: Text(
+                          coreL10n.signin,
+                          style: loginForm.isButtonActive
+                              ? const TextStyle(color: Colors.white)
+                              : null,
+                        ),
+                      ),
                     ),
                   ),
                   Row(
                     // ignore: sort_child_properties_last
                     children: <Widget>[
-                      Text(coreL10n.signinDontHaveAccount,
-                          style: TextStyle(color: colors.textfieldlabel)),
+                      Text(
+                        coreL10n.signinDontHaveAccount,
+                      ),
                       TextButton(
                         child: Text(
                           coreL10n.signup,
@@ -84,6 +120,7 @@ class _LoginViewState extends ConsumerState<LoginView> {
                     ],
                     mainAxisAlignment: MainAxisAlignment.center,
                   ),
+                  const AppGap.xxl()
                 ],
               ),
             ),

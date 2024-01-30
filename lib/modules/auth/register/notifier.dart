@@ -5,29 +5,29 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 part 'notifier.g.dart';
 
 @Riverpod(keepAlive: false)
-class Login extends _$Login {
+class Register extends _$Register {
   @override
   FutureOr<bool> build() {
     return false;
   }
 
-  Future<void> login(
-    String login,
+  Future<void> register(
+    String register,
   ) async {
     state = const AsyncLoading();
-    ref.read(loginFormProvider.notifier).setConnectionMessageError(
+    ref.read(registerFormProvider.notifier).setConnectionMessageError(
           AuthAlertMessage.none,
         );
-    /*final loginRepository = ref.read(loginRepositoryProvider);
-    state = await AsyncValue.guard(() => loginRepository.login(
-          login,
+    /*final registerRepository = ref.read(registerRepositoryProvider);
+    state = await AsyncValue.guard(() => registerRepository.register(
+          register,
           null,
         ));*/
   }
 }
 
 @Riverpod(keepAlive: false)
-class LoginForm extends _$LoginForm {
+class RegisterForm extends _$RegisterForm {
   @override
   AuthStatus build() {
     return AuthStatus();

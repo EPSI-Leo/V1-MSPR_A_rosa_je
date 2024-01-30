@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'login_status.dart';
+part of 'auth_status.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$LoginStatus {
+mixin _$AuthStatus {
   String get username => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
   AuthAlertMessage get alertMessage => throw _privateConstructorUsedError;
@@ -23,15 +23,15 @@ mixin _$LoginStatus {
   bool get isLoading => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $LoginStatusCopyWith<LoginStatus> get copyWith =>
+  $AuthStatusCopyWith<AuthStatus> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $LoginStatusCopyWith<$Res> {
-  factory $LoginStatusCopyWith(
-          LoginStatus value, $Res Function(LoginStatus) then) =
-      _$LoginStatusCopyWithImpl<$Res, LoginStatus>;
+abstract class $AuthStatusCopyWith<$Res> {
+  factory $AuthStatusCopyWith(
+          AuthStatus value, $Res Function(AuthStatus) then) =
+      _$AuthStatusCopyWithImpl<$Res, AuthStatus>;
   @useResult
   $Res call(
       {String username,
@@ -42,9 +42,9 @@ abstract class $LoginStatusCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$LoginStatusCopyWithImpl<$Res, $Val extends LoginStatus>
-    implements $LoginStatusCopyWith<$Res> {
-  _$LoginStatusCopyWithImpl(this._value, this._then);
+class _$AuthStatusCopyWithImpl<$Res, $Val extends AuthStatus>
+    implements $AuthStatusCopyWith<$Res> {
+  _$AuthStatusCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -86,11 +86,11 @@ class _$LoginStatusCopyWithImpl<$Res, $Val extends LoginStatus>
 }
 
 /// @nodoc
-abstract class _$$LoginStatusImplCopyWith<$Res>
-    implements $LoginStatusCopyWith<$Res> {
-  factory _$$LoginStatusImplCopyWith(
-          _$LoginStatusImpl value, $Res Function(_$LoginStatusImpl) then) =
-      __$$LoginStatusImplCopyWithImpl<$Res>;
+abstract class _$$AuthStatusImplCopyWith<$Res>
+    implements $AuthStatusCopyWith<$Res> {
+  factory _$$AuthStatusImplCopyWith(
+          _$AuthStatusImpl value, $Res Function(_$AuthStatusImpl) then) =
+      __$$AuthStatusImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -102,11 +102,11 @@ abstract class _$$LoginStatusImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$LoginStatusImplCopyWithImpl<$Res>
-    extends _$LoginStatusCopyWithImpl<$Res, _$LoginStatusImpl>
-    implements _$$LoginStatusImplCopyWith<$Res> {
-  __$$LoginStatusImplCopyWithImpl(
-      _$LoginStatusImpl _value, $Res Function(_$LoginStatusImpl) _then)
+class __$$AuthStatusImplCopyWithImpl<$Res>
+    extends _$AuthStatusCopyWithImpl<$Res, _$AuthStatusImpl>
+    implements _$$AuthStatusImplCopyWith<$Res> {
+  __$$AuthStatusImplCopyWithImpl(
+      _$AuthStatusImpl _value, $Res Function(_$AuthStatusImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -118,7 +118,7 @@ class __$$LoginStatusImplCopyWithImpl<$Res>
     Object? isButtonActive = null,
     Object? isLoading = null,
   }) {
-    return _then(_$LoginStatusImpl(
+    return _then(_$AuthStatusImpl(
       username: null == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
@@ -145,8 +145,8 @@ class __$$LoginStatusImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$LoginStatusImpl implements _LoginStatus {
-  _$LoginStatusImpl(
+class _$AuthStatusImpl implements _AuthStatus {
+  _$AuthStatusImpl(
       {this.username = '',
       this.password = '',
       this.alertMessage = AuthAlertMessage.none,
@@ -171,14 +171,14 @@ class _$LoginStatusImpl implements _LoginStatus {
 
   @override
   String toString() {
-    return 'LoginStatus(username: $username, password: $password, alertMessage: $alertMessage, isButtonActive: $isButtonActive, isLoading: $isLoading)';
+    return 'AuthStatus(username: $username, password: $password, alertMessage: $alertMessage, isButtonActive: $isButtonActive, isLoading: $isLoading)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LoginStatusImpl &&
+            other is _$AuthStatusImpl &&
             (identical(other.username, username) ||
                 other.username == username) &&
             (identical(other.password, password) ||
@@ -198,17 +198,17 @@ class _$LoginStatusImpl implements _LoginStatus {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$LoginStatusImplCopyWith<_$LoginStatusImpl> get copyWith =>
-      __$$LoginStatusImplCopyWithImpl<_$LoginStatusImpl>(this, _$identity);
+  _$$AuthStatusImplCopyWith<_$AuthStatusImpl> get copyWith =>
+      __$$AuthStatusImplCopyWithImpl<_$AuthStatusImpl>(this, _$identity);
 }
 
-abstract class _LoginStatus implements LoginStatus {
-  factory _LoginStatus(
+abstract class _AuthStatus implements AuthStatus {
+  factory _AuthStatus(
       {final String username,
       final String password,
       final AuthAlertMessage alertMessage,
       final bool isButtonActive,
-      final bool isLoading}) = _$LoginStatusImpl;
+      final bool isLoading}) = _$AuthStatusImpl;
 
   @override
   String get username;
@@ -222,6 +222,6 @@ abstract class _LoginStatus implements LoginStatus {
   bool get isLoading;
   @override
   @JsonKey(ignore: true)
-  _$$LoginStatusImplCopyWith<_$LoginStatusImpl> get copyWith =>
+  _$$AuthStatusImplCopyWith<_$AuthStatusImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

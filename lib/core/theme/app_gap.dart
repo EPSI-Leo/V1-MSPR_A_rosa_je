@@ -1,7 +1,7 @@
+import 'package:arosa_je/core/theme/app_spacing.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
-import 'package:arosa_je/core/core.dart';
 
 enum _Spacing { xxs, xs, ms, s, m, l, xl, xxl }
 

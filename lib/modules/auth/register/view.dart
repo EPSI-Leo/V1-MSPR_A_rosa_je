@@ -1,4 +1,6 @@
 import 'package:arosa_je/core/core.dart';
+import 'package:arosa_je/core/theme/app_spacing.dart';
+import 'package:arosa_je/modules/auth/register/notifier.dart';
 import 'package:arosa_je/router/router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -12,33 +14,35 @@ class RegisterView extends ConsumerStatefulWidget {
 }
 
 class _RegisterViewState extends ConsumerState<RegisterView> {
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final _register = TextEditingController();
 
-  final TextEditingController _usernameController = TextEditingController();
-
-  bool hasViewedTermsOfUse = false;
+  bool isChecked = false;
+  final _formKey = GlobalKey<FormState>();
 
   @override
-  Widget build(
-    BuildContext context,
-  ) {
-    final colors = ref.watch(appColorThemeProvider);
-    final spacings = ref.watch(spacingThemeProvider);
-    final radius = ref.watch(radiusThemeProvider);
+  void dispose() {
+    _register.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final spacings = ref.read(spacingThemeProvider);
     final coreL10n = context.coreL10n;
+    final registerForm = ref.watch(registerFormProvider);
 
     return Scaffold(
       body: Center(
-        child: Padding(
-          padding: EdgeInsets.all(spacings.small),
-          child: SingleChildScrollView(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8.0),
             child: Form(
               key: _formKey,
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
                 mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const AppGap.medium(),
+                  const Image(image: AssetImage('lib/assets/images/icon.png')),
                   Text(
                     coreL10n.signupTitle,
                     style: const TextStyle(
@@ -46,89 +50,63 @@ class _RegisterViewState extends ConsumerState<RegisterView> {
                         color: Colors.black,
                         fontWeight: FontWeight.bold),
                   ),
-                  const AppGap.medium(),
-                  /*   AppTextFormField(
-                    color: colors.backgroundtextfield,
-                    filled: true,
-                    label: coreL10n.signinUsername,
-                    hint: coreL10n.signinUsernameSentence,
-                    tint: colors.textfieldlabel,
-                    borderColor: Colors.white,
-                    radius: radius.medium,
-                    controller: _usernameController,
-                    onChanged: (value) {},
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        setState(() {});
-                        return coreL10n.validateEmail;
-                      } else {}
-                      return null;
-                    },
-                  ),*/
+                  const AppGap.xxl(),
                   const AppGap.xs(),
-                  FilledButton(
-                    child: Text(coreL10n.signup),
-                    onPressed: () async {
-                      context.goNamed(AppRoute.home.name); // temp
-                      /*if (_formKey.currentState!.validate()) {
-                        if (!_acceptTermsOfUse) {
-                          setState(() {
-                            _termsError = true;
-                          });
-                          return;
-                        } else {
-                          if (hasViewedTermsOfUse == true) {
-                            //TODO makeSomething
-                            final registerNotifier =
-                                ref.read(registerProvider.notifier);
-                            await registerNotifier.register(
-                                _firstnameController.text,
-                                _lastnameController.text,
-                                _usernameController.text,
-                                _passwordController.text,
-                                _emailController.text,
-                                _phonenumberController.text,
-                                _addressController.text,
-                                _postalCodeController.text,
-                                _cityController.text,
-                                _acceptTermsOfUse);
-                            // ignore: invalid_use_of_protected_member, invalid_use_of_visible_for_testing_member
-                            if (registerNotifier.state) {
-                              // L'inscription a réussi, effectuez la navigation ici
-                              // ignore: use_build_context_synchronously
-                              context.goNamed(AppRoute.login.name);
-                            } else {
-                              // L'inscription a échoué, vous pouvez ajouter une logique supplémentaire ici si nécessaire
-                              Fluttertoast.showToast(
-                                msg: 'no',
-                                toastLength: Toast.LENGTH_SHORT,
-                                gravity: ToastGravity.CENTER,
-                                timeInSecForIosWeb: 1,
-                                backgroundColor: colors.primary,
-                                textColor: Colors.white,
-                                fontSize: 16.0,
-                              );
-                            }
-                          } else {
-                            Fluttertoast.showToast(
-                              msg: coreL10n.signupTermsOfuse,
-                              toastLength: Toast.LENGTH_SHORT,
-                              gravity: ToastGravity.CENTER,
-                              timeInSecForIosWeb: 1,
-                              backgroundColor: colors.primary,
-                              textColor: Colors.white,
-                              fontSize: 16.0,
-                            );
-                          }
-                        }
-                      }*/
+                  TextFormField(
+                    controller: _register,
+                    onChanged: (value) {
+                      ref
+                          .read(registerFormProvider.notifier)
+                          .setUsername(value);
                     },
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      labelText: coreL10n.signinUsername,
+                      labelStyle: const TextStyle(color: Colors.black),
+                      hintText: coreL10n.signinUsernameSentence,
+                    ),
+                  ),
+                  const AppGap.small(),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: spacings.xs),
+                    child: SizedBox(
+                      width: double.infinity,
+                      height: spacings.large,
+                      child: FilledButton(
+                        style: ButtonStyle(
+                          backgroundColor: registerForm.isButtonActive
+                              ? MaterialStateProperty.all(Colors.green)
+                              : null,
+                        ),
+                        onPressed: registerForm.isButtonActive
+                            ? () {
+                                if (_formKey.currentState?.validate() ??
+                                    false) {
+                                  //TODO do something
+                                }
+                                FocusManager.instance.primaryFocus?.unfocus();
+                              }
+                            : null,
+                        child: Text(
+                          coreL10n.signup,
+                          style: registerForm.isButtonActive
+                              ? const TextStyle(color: Colors.white)
+                              : null,
+                        ),
+                      ),
+                    ),
                   ),
                   Row(
                     // ignore: sort_child_properties_last
                     children: <Widget>[
-                      Text(coreL10n.signupHaveAccount,
-                          style: TextStyle(color: colors.textfieldlabel)),
+                      Text(
+                        coreL10n.signinDontHaveAccount,
+                      ),
                       TextButton(
                         child: Text(
                           coreL10n.signin,
@@ -141,6 +119,7 @@ class _RegisterViewState extends ConsumerState<RegisterView> {
                     ],
                     mainAxisAlignment: MainAxisAlignment.center,
                   ),
+                  const AppGap.xxl()
                 ],
               ),
             ),
@@ -148,41 +127,5 @@ class _RegisterViewState extends ConsumerState<RegisterView> {
         ),
       ),
     );
-  }
-
-  bool isValidEmail(String value) {
-    // Expression régulière pour valider une adresse e-mail
-    RegExp emailRegExp = RegExp(
-      r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$',
-    );
-    return emailRegExp.hasMatch(value);
-  }
-
-  String? validatePhoneNumber(String? value) {
-    if (value == null || value.isEmpty) {
-      return context.coreL10n.validatePhone;
-    }
-    String pattern = r'^\d{10}$';
-    RegExp regExp = RegExp(pattern);
-
-    if (!regExp.hasMatch(value)) {
-      return context.coreL10n.validatePhoneValid;
-    }
-
-    return null;
-  }
-
-  String? validatePostalCode(String? value) {
-    if (value == null || value.isEmpty) {
-      return context.coreL10n.validatePostaleCode;
-    }
-    String pattern = r'^\d{5}$';
-    RegExp regExp = RegExp(pattern);
-
-    if (!regExp.hasMatch(value)) {
-      return context.coreL10n.validatePostaleCodeValid;
-    }
-
-    return null;
   }
 }
