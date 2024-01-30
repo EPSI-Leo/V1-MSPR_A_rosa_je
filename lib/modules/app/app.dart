@@ -1,14 +1,14 @@
 import 'dart:async';
 
+import 'package:arosa_je/core/core.dart';
+import 'package:arosa_je/core/local/session_manager/session_manager.dart';
 import 'package:arosa_je/modules/app/app_initialcenter_providers.dart';
-import 'package:arosa_je/modules/app/session_manager.dart';
+import 'package:arosa_je/router/router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:go_router/go_router.dart';
 import 'package:latlong2/latlong.dart';
-import 'package:arosa_je/core/core.dart';
-import 'package:arosa_je/router/router.dart';
 
 class App extends ConsumerStatefulWidget {
   const App({super.key});
@@ -24,24 +24,35 @@ class _AppState extends ConsumerState<App> {
   @override
   void initState() {
     super.initState();
-    _init();
+    final sessionManager = ref.read(sessionManagerProvider);
+    Future.delayed(Duration.zero, () async {
+      final isLoggedIn = await sessionManager.isLoggedIn();
+      _init(isLoggedIn);
+    });
   }
 
-  void _init() async {
-    await _checkLocationPermission();
+  void _init(bool isLoggedIn) async {
+    await _checkLocationPermission(
+      isLoggedIn,
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     // Affichez un indicateur de chargement ou autre chose ici si nécessaire
-    return const Center(
-      child: CircularProgressIndicator(),
+
+    return const Scaffold(
+      backgroundColor: Colors.white,
+      body: Center(
+        child: CircularProgressIndicator(
+          color: Colors.black,
+        ),
+      ),
     );
   }
 
-  Future<void> _checkLocationPermission() async {
+  Future<void> _checkLocationPermission(bool isLoggedIn) async {
     LocationPermission permission = await Geolocator.checkPermission();
-    bool isLoggedIn = await SessionManager.isLoggedIn();
 
     if (permission == LocationPermission.denied) {
       permission = await Geolocator.requestPermission();
