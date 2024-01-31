@@ -35,7 +35,7 @@ class _LoginViewState extends ConsumerState<LoginView> {
       body: Center(
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8.0),
+            padding: EdgeInsets.symmetric(horizontal: spacings.small),
             child: Form(
               key: _formKey,
               child: Column(
