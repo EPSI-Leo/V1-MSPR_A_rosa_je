@@ -1,24 +1,25 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'router.dart';
+part of 'notifier.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$routerHash() => r'2cd69e8c32b80c2fd9b329c8caea750ad96a4d86';
+String _$getAdvicesHash() => r'552566fa6137d34d181f82b535adca2b30c8ec79';
 
-/// See also [router].
-@ProviderFor(router)
-final routerProvider = Provider<GoRouter>.internal(
-  router,
-  name: r'routerProvider',
+/// See also [GetAdvices].
+@ProviderFor(GetAdvices)
+final getAdvicesProvider =
+    AutoDisposeAsyncNotifierProvider<GetAdvices, Advices?>.internal(
+  GetAdvices.new,
+  name: r'getAdvicesProvider',
   debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$routerHash,
+      const bool.fromEnvironment('dart.vm.product') ? null : _$getAdvicesHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef RouterRef = ProviderRef<GoRouter>;
+typedef _$GetAdvices = AutoDisposeAsyncNotifier<Advices?>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

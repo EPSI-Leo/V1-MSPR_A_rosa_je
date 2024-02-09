@@ -38,14 +38,12 @@ class _LoginViewState extends ConsumerState<LoginView> {
     ref.listen(loginProvider, (_, next) {
       next.when(
         data: (isAuthenticated) {
-          print(isAuthenticated);
           if (isAuthenticated) {
             context.goNamed(AppRoute.home.name);
             ref.read(loginFormProvider.notifier).setLoading(false);
           }
         },
         error: (error, stackTrace) {
-          print(error);
           if (error is ApiClientException) {
             if (error.code == HttpStatus.forbidden ||
                 error.code == HttpStatus.badRequest ||

@@ -1,24 +1,25 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'router.dart';
+part of 'notifier.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$routerHash() => r'2cd69e8c32b80c2fd9b329c8caea750ad96a4d86';
+String _$myPlantsHash() => r'67abad66fc26b9547c5843d2e872d91412f5b549';
 
-/// See also [router].
-@ProviderFor(router)
-final routerProvider = Provider<GoRouter>.internal(
-  router,
-  name: r'routerProvider',
+/// See also [MyPlants].
+@ProviderFor(MyPlants)
+final myPlantsProvider =
+    AutoDisposeAsyncNotifierProvider<MyPlants, Plants?>.internal(
+  MyPlants.new,
+  name: r'myPlantsProvider',
   debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$routerHash,
+      const bool.fromEnvironment('dart.vm.product') ? null : _$myPlantsHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef RouterRef = ProviderRef<GoRouter>;
+typedef _$MyPlants = AutoDisposeAsyncNotifier<Plants?>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

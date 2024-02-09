@@ -39,14 +39,12 @@ class _RegisterViewState extends ConsumerState<RegisterView> {
     ref.listen(registerProvider, (_, next) {
       next.when(
         data: (isAuthenticated) {
-          print('a');
           if (isAuthenticated) {
             context.goNamed(AppRoute.login.name);
             ref.read(registerFormProvider.notifier).setLoading(false);
           }
         },
         error: (error, stackTrace) {
-          print('$error');
           if (error is ApiClientException) {
             if (error.code == HttpStatus.forbidden ||
                 error.code == HttpStatus.badRequest ||
@@ -59,7 +57,6 @@ class _RegisterViewState extends ConsumerState<RegisterView> {
           ref.read(registerFormProvider.notifier).setLoading(false);
         },
         loading: () {
-          print('c');
           ref.read(registerFormProvider.notifier).setLoading(true);
         },
       );

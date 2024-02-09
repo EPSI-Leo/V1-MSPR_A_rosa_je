@@ -2,11 +2,8 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:arosa_je/core/api_client.dart';
-import 'package:arosa_je/core/core.dart';
 import 'package:arosa_je/core/data/entities/login/login_response.dart';
-
 import 'package:http/http.dart';
-
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'api_login.g.dart';

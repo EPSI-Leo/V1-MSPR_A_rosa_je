@@ -31,7 +31,7 @@ class HomeDrawer extends ConsumerWidget {
             leading: const Icon(Icons.chat),
             title: Text(coreL10n.advice),
             onTap: () async {
-              // context.goNamed(AppRoute.advice.name);
+              context.goNamed(AppRoute.advice.name);
             },
           ),
           ListTile(
