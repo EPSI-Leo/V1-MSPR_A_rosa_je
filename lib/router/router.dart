@@ -3,6 +3,7 @@ import 'package:arosa_je/core/core.dart';
 import 'package:arosa_je/modules/auth/login/view.dart';
 import 'package:arosa_je/modules/auth/register/view.dart';
 import 'package:arosa_je/modules/home/view.dart';
+import 'package:arosa_je/modules/plants/view.dart';
 
 import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -36,7 +37,15 @@ GoRouter router(RouterRef ref) {
 
                     return const HomeView();
                   },
-                  routes: [],
+                  routes: [
+                    GoRoute(
+                      path: AppRoute.userPlantList.path,
+                      name: AppRoute.userPlantList.name,
+                      builder: (context, state) {
+                        return const MyPlants();
+                      },
+                    ),
+                  ],
                 ),
               ],
             ),
@@ -54,4 +63,7 @@ class AppRoute {
   static const AppRoute login = AppRoute._('login', 'login');
   static const AppRoute register = AppRoute._('register', 'register');
   static const AppRoute home = AppRoute._('home', 'home');
+
+  static const AppRoute userPlantList =
+      AppRoute._('user-plant-list', 'user-plant-list');
 }

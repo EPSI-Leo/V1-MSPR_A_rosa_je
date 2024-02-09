@@ -1,5 +1,9 @@
+import 'dart:io';
+
+import 'package:arosa_je/core/api_client_exception.dart';
 import 'package:arosa_je/core/core.dart';
 import 'package:arosa_je/core/theme/app_spacing.dart';
+import 'package:arosa_je/modules/auth/login/model/auth_alert_message.dart';
 import 'package:arosa_je/modules/auth/register/notifier.dart';
 import 'package:arosa_je/router/router.dart';
 import 'package:flutter/material.dart';
@@ -30,6 +34,36 @@ class _RegisterViewState extends ConsumerState<RegisterView> {
     final spacings = ref.read(spacingThemeProvider);
     final coreL10n = context.coreL10n;
     final registerForm = ref.watch(registerFormProvider);
+    ref.read(registerProvider);
+
+    ref.listen(registerProvider, (_, next) {
+      next.when(
+        data: (isAuthenticated) {
+          print('a');
+          if (isAuthenticated) {
+            context.goNamed(AppRoute.login.name);
+            ref.read(registerFormProvider.notifier).setLoading(false);
+          }
+        },
+        error: (error, stackTrace) {
+          print('$error');
+          if (error is ApiClientException) {
+            if (error.code == HttpStatus.forbidden ||
+                error.code == HttpStatus.badRequest ||
+                error.code == HttpStatus.notFound) {
+              ref.read(registerFormProvider.notifier).setConnectionMessageError(
+                    AuthAlertMessage.invalidForm,
+                  );
+            }
+          }
+          ref.read(registerFormProvider.notifier).setLoading(false);
+        },
+        loading: () {
+          print('c');
+          ref.read(registerFormProvider.notifier).setLoading(true);
+        },
+      );
+    });
 
     return Scaffold(
       body: Center(
@@ -87,7 +121,9 @@ class _RegisterViewState extends ConsumerState<RegisterView> {
                             ? () {
                                 if (_formKey.currentState?.validate() ??
                                     false) {
-                                  //TODO do something
+                                  ref
+                                      .read(registerProvider.notifier)
+                                      .register(_register.text);
                                 }
                                 FocusManager.instance.primaryFocus?.unfocus();
                               }

@@ -1,3 +1,4 @@
+import 'package:arosa_je/core/data/repositories/auth/register/register_repository.dart';
 import 'package:arosa_je/modules/auth/login/model/auth_alert_message.dart';
 import 'package:arosa_je/modules/auth/login/model/auth_status.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -12,17 +13,16 @@ class Register extends _$Register {
   }
 
   Future<void> register(
-    String register,
+    String username,
   ) async {
     state = const AsyncLoading();
     ref.read(registerFormProvider.notifier).setConnectionMessageError(
           AuthAlertMessage.none,
         );
-    /*final registerRepository = ref.read(registerRepositoryProvider);
+    final registerRepository = ref.read(registerRepositoryProvider);
     state = await AsyncValue.guard(() => registerRepository.register(
-          register,
-          null,
-        ));*/
+          username,
+        ));
   }
 }
 

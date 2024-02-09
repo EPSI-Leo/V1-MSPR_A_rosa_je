@@ -38,7 +38,7 @@ class HomeDrawer extends ConsumerWidget {
             leading: const Icon(Icons.chat),
             title: Text(coreL10n.myPlants),
             onTap: () {
-              // context.goNamed(AppRoute.userPlantList.name);
+              context.goNamed(AppRoute.userPlantList.name);
             },
           ),
           ListTile(
@@ -46,8 +46,9 @@ class HomeDrawer extends ConsumerWidget {
             title: Text(coreL10n.disconnect,
                 style: const TextStyle(color: Colors.red)),
             onTap: () async {
-              //await sessionManager.deleteMultipleSecureStorage([SecureStorageKeys.keyToken]);
-              // ignore: use_build_context_synchronously
+              await sessionManager
+                  .deleteMultipleSecureStorage([SecureStorageKeys.userInfos]);
+
               context.goNamed(AppRoute.login.name);
             },
           ),

@@ -36,7 +36,7 @@ class SessionManager {
   }
 
   Future<bool> isLoggedIn() async {
-    final token = await storage.read(key: SecureStorageKeys.keyToken);
+    final token = await storage.read(key: SecureStorageKeys.userInfos);
     return token != null;
   }
 }

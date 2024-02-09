@@ -1,6 +1,10 @@
+import 'dart:io';
+
+import 'package:arosa_je/core/api_client_exception.dart';
 import 'package:arosa_je/core/core.dart';
 import 'package:arosa_je/core/theme/app_spacing.dart';
 import 'package:arosa_je/modules/auth/login/notifier.dart';
+import 'package:arosa_je/modules/auth/login/model/auth_alert_message.dart';
 import 'package:arosa_je/router/router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -30,6 +34,34 @@ class _LoginViewState extends ConsumerState<LoginView> {
     final spacings = ref.read(spacingThemeProvider);
     final coreL10n = context.coreL10n;
     final loginForm = ref.watch(loginFormProvider);
+
+    ref.listen(loginProvider, (_, next) {
+      next.when(
+        data: (isAuthenticated) {
+          print(isAuthenticated);
+          if (isAuthenticated) {
+            context.goNamed(AppRoute.home.name);
+            ref.read(loginFormProvider.notifier).setLoading(false);
+          }
+        },
+        error: (error, stackTrace) {
+          print(error);
+          if (error is ApiClientException) {
+            if (error.code == HttpStatus.forbidden ||
+                error.code == HttpStatus.badRequest ||
+                error.code == HttpStatus.notFound) {
+              ref.read(loginFormProvider.notifier).setConnectionMessageError(
+                    AuthAlertMessage.invalidForm,
+                  );
+            }
+          }
+          ref.read(loginFormProvider.notifier).setLoading(false);
+        },
+        loading: () {
+          ref.read(loginFormProvider.notifier).setLoading(true);
+        },
+      );
+    });
 
     return Scaffold(
       body: Center(
@@ -88,9 +120,9 @@ class _LoginViewState extends ConsumerState<LoginView> {
                             ? () {
                                 if (_formKey.currentState?.validate() ??
                                     false) {
-                                  //TODO do something
-                                  //TODO remove this
-                                  context.goNamed(AppRoute.home.name);
+                                  ref
+                                      .read(loginProvider.notifier)
+                                      .login(_login.text);
                                 }
                                 FocusManager.instance.primaryFocus?.unfocus();
                               }
