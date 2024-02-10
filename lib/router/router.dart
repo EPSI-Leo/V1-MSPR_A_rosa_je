@@ -4,8 +4,9 @@ import 'package:arosa_je/modules/advices/view.dart';
 import 'package:arosa_je/modules/app/app.dart';
 import 'package:arosa_je/modules/auth/login/view.dart';
 import 'package:arosa_je/modules/auth/register/view.dart';
+import 'package:arosa_je/modules/camera/view.dart';
 import 'package:arosa_je/modules/home/view.dart';
-import 'package:arosa_je/modules/myPlants/view.dart';
+import 'package:arosa_je/modules/plants/myPlants/view.dart';
 import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -39,6 +40,14 @@ GoRouter router(RouterRef ref) {
                     return const HomeView();
                   },
                   routes: [
+                    GoRoute(
+                        path: AppRoute.camera.path,
+                        name: AppRoute.camera.name,
+                        builder: (context, state) {
+                          return const CameraView(
+                            cameras: [],
+                          );
+                        }),
                     GoRoute(
                       path: AppRoute.userPlantList.path,
                       name: AppRoute.userPlantList.name,
@@ -87,4 +96,10 @@ class AppRoute {
   //advice
   static const AppRoute advice = AppRoute._('advice', 'advice');
   static const AppRoute addAdvice = AppRoute._('add-advice', 'add-advice');
+
+  //camera-add_plants
+  static const AppRoute camera = AppRoute._('camera', 'camera');
+  static const AppRoute picturePreview =
+      AppRoute._('picture-preview', 'picture-preview');
+  static const AppRoute addPlant = AppRoute._('add-plant', 'add-plant');
 }

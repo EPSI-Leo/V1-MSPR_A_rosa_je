@@ -1,6 +1,5 @@
 import 'package:arosa_je/core/data/entities/plant/plant.dart';
-
-import 'package:arosa_je/modules/myPlants/notifier.dart';
+import 'package:arosa_je/modules/plants/myPlants/notifier.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -21,10 +20,10 @@ class _MyPlantsState extends ConsumerState<MyPlants> {
     return plantsList.when(
       data: (plants) {
         if (plants != null) {
-          final _data = <Item>[];
+          final data = <Item>[];
 
           for (final plant in plants.plants!) {
-            _data.add(Item(plant: plant));
+            data.add(Item(plant: plant));
           }
 
           return Scaffold(
@@ -35,12 +34,12 @@ class _MyPlantsState extends ConsumerState<MyPlants> {
               child: SingleChildScrollView(
                 child: ExpansionPanelList(
                   expansionCallback: (int index, bool isExpanded) {
-                    final plantId = _data[index].plant.id!;
+                    final plantId = data[index].plant.id!;
                     setState(() {
                       _expandedState[plantId] = isExpanded;
                     });
                   },
-                  children: _data.map<ExpansionPanel>((Item item) {
+                  children: data.map<ExpansionPanel>((Item item) {
                     return ExpansionPanel(
                       headerBuilder: (BuildContext context, bool isExpanded) {
                         return ListTile(

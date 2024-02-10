@@ -44,7 +44,7 @@ class MapView extends ConsumerWidget {
             );
           }
         }
-        return map(const LatLng(45.54705, 5.97151), markers);
+        return map(const LatLng(45.54705, 5.97151), markers); // initialCenter!
       },
       loading: () => const Center(
         child: Center(
@@ -53,7 +53,7 @@ class MapView extends ConsumerWidget {
       ),
       error: (error, stackTrace) {
         printDebug(error.toString());
-        return map(const LatLng(45.54705, 5.97151), markers);
+        return map(const LatLng(45.54705, 5.97151), markers); // initialCenter!
       },
     );
   }

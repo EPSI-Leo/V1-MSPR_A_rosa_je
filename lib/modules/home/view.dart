@@ -1,5 +1,7 @@
+import 'package:arosa_je/modules/camera/view.dart';
 import 'package:arosa_je/modules/drawer/home_drawer.dart';
 import 'package:arosa_je/modules/map/view.dart';
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -61,7 +63,14 @@ class _HomeViewState extends ConsumerState<HomeView> {
                   child: IconButton(
                     icon: const Icon(Icons.camera_alt),
                     color: Colors.white,
-                    onPressed: () async {},
+                    onPressed: () async {
+                      await availableCameras().then(
+                        (value) => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (_) => CameraView(cameras: value))),
+                      );
+                    },
                   ),
                 ),
               ),
