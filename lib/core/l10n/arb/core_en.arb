@@ -1,17 +1,5 @@
 {
-  "validateEmail": "Please enter an email address",
-  "validateEmailValid": "Please enter a valid email address",
-  "validatePhone": "Please enter an phone number",
-  "validatePhoneValid": "Please enter a valid phone number",
-  "validatePostaleCode": "Please enter a postal code",
-  "validatePostaleCodeValid": "Please enter a valid postal code",
   "validateText" : "Please complete this field",
-  "sendSuccessfully": "Your message has been sent successfully !",
-
-  "notificationBackgroundTitle":"Oleys",
-  "notificationBackgroundMessage":"Carpool GPS tracking is underway",
-
-  "popupchoosetypecovoit":"Carpool for :",
 
   "signinTitle1":"WELCOME",
   "signinSentence1":"Please login to continue",
@@ -91,7 +79,10 @@
   "skip":"Skip",
   "continues":"Continue",
   "confirm":"Confirm",
-  "advice":"Advice",
+  "advices":"Advices",
   "myPlants":"My plants",
-  "invalidCode":"Username invalid"
+  "invalidCode":"Username invalid",
+  "plantName" : "Plant name",
+  "careAdvice" : "Care Advice",
+  "addAdvice": "Add advice"
 }

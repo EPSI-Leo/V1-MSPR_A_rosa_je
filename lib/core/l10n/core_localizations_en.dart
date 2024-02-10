@@ -5,37 +5,7 @@ class CoreLocalizationsEn extends CoreLocalizations {
   CoreLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
-  String get validateEmail => 'Please enter an email address';
-
-  @override
-  String get validateEmailValid => 'Please enter a valid email address';
-
-  @override
-  String get validatePhone => 'Please enter an phone number';
-
-  @override
-  String get validatePhoneValid => 'Please enter a valid phone number';
-
-  @override
-  String get validatePostaleCode => 'Please enter a postal code';
-
-  @override
-  String get validatePostaleCodeValid => 'Please enter a valid postal code';
-
-  @override
   String get validateText => 'Please complete this field';
-
-  @override
-  String get sendSuccessfully => 'Your message has been sent successfully !';
-
-  @override
-  String get notificationBackgroundTitle => 'Oleys';
-
-  @override
-  String get notificationBackgroundMessage => 'Carpool GPS tracking is underway';
-
-  @override
-  String get popupchoosetypecovoit => 'Carpool for :';
 
   @override
   String get signinTitle1 => 'WELCOME';
@@ -251,11 +221,20 @@ class CoreLocalizationsEn extends CoreLocalizations {
   String get confirm => 'Confirm';
 
   @override
-  String get advice => 'Advice';
+  String get advices => 'Advices';
 
   @override
   String get myPlants => 'My plants';
 
   @override
   String get invalidCode => 'Username invalid';
+
+  @override
+  String get plantName => 'Plant name';
+
+  @override
+  String get careAdvice => 'Care Advice';
+
+  @override
+  String get addAdvice => 'Add advice';
 }

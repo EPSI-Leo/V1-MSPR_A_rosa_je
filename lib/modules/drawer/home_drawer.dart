@@ -1,7 +1,6 @@
 import 'package:arosa_je/core/core.dart';
 import 'package:arosa_je/core/local/session_manager/secure_storage_keys.dart';
 import 'package:arosa_je/core/local/session_manager/session_manager.dart';
-
 import 'package:arosa_je/router/router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -29,7 +28,7 @@ class HomeDrawer extends ConsumerWidget {
           ),
           ListTile(
             leading: const Icon(Icons.chat),
-            title: Text(coreL10n.advice),
+            title: Text(coreL10n.advices),
             onTap: () async {
               context.goNamed(AppRoute.advice.name);
             },

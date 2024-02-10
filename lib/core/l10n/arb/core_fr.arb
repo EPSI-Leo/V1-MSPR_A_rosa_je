@@ -1,19 +1,5 @@
 {
- "validateEmail": "Veuillez entrer une adresse e-mail",
-  "validateEmailValid": "Veuillez entrer une adresse e-mail valide",
-  "validatePhone": "Veuillez entrer un numéro de téléphone",
-  "validatePhoneValid": "Veuillez entrer un numéro de téléphone valide",
-  "validatePostaleCode": "Veuillez entrer un code postal",
-  "validatePostaleCodeValid": "Veuillez entrer un code postal valide",
   "validateText" : "Veuillez completer ce champ",
-  "sendSuccessfully": "Votre message a été envoyé avec succès !",
-
-
-
-  "notificationBackgroundTitle":"Oleys",
-  "notificationBackgroundMessage":"Le suivi GPS du covoiturage est en cours",
-
-  "popupchoosetypecovoit":"Covoiturer pour :",
 
   "signinTitle1": "BIENVENUE",
   "signinSentence1":"Merci de vous connecter pour continuer",
@@ -93,7 +79,10 @@
   "skip":"Passer",
   "continues":"Continuer",
   "confirm":"Confirmer",
-  "advice":"Conseils",
+  "advices":"Conseils",
   "myPlants":"Mes plantes",
-  "invalidCode":"Identifiant invalide"
+  "invalidCode":"Identifiant invalide",
+  "plantName" : "Nom de la plante",
+  "careAdvice" : "Conseil",
+  "addAdvice": "Ajouter un conseil"
 }

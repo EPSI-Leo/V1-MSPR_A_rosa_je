@@ -5,37 +5,7 @@ class CoreLocalizationsFr extends CoreLocalizations {
   CoreLocalizationsFr([String locale = 'fr']) : super(locale);
 
   @override
-  String get validateEmail => 'Veuillez entrer une adresse e-mail';
-
-  @override
-  String get validateEmailValid => 'Veuillez entrer une adresse e-mail valide';
-
-  @override
-  String get validatePhone => 'Veuillez entrer un numéro de téléphone';
-
-  @override
-  String get validatePhoneValid => 'Veuillez entrer un numéro de téléphone valide';
-
-  @override
-  String get validatePostaleCode => 'Veuillez entrer un code postal';
-
-  @override
-  String get validatePostaleCodeValid => 'Veuillez entrer un code postal valide';
-
-  @override
   String get validateText => 'Veuillez completer ce champ';
-
-  @override
-  String get sendSuccessfully => 'Votre message a été envoyé avec succès !';
-
-  @override
-  String get notificationBackgroundTitle => 'Oleys';
-
-  @override
-  String get notificationBackgroundMessage => 'Le suivi GPS du covoiturage est en cours';
-
-  @override
-  String get popupchoosetypecovoit => 'Covoiturer pour :';
 
   @override
   String get signinTitle1 => 'BIENVENUE';
@@ -251,11 +221,20 @@ class CoreLocalizationsFr extends CoreLocalizations {
   String get confirm => 'Confirmer';
 
   @override
-  String get advice => 'Conseils';
+  String get advices => 'Conseils';
 
   @override
   String get myPlants => 'Mes plantes';
 
   @override
   String get invalidCode => 'Identifiant invalide';
+
+  @override
+  String get plantName => 'Nom de la plante';
+
+  @override
+  String get careAdvice => 'Conseil';
+
+  @override
+  String get addAdvice => 'Ajouter un conseil';
 }

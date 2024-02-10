@@ -93,71 +93,11 @@ abstract class CoreLocalizations {
     Locale('fr')
   ];
 
-  /// No description provided for @validateEmail.
-  ///
-  /// In en, this message translates to:
-  /// **'Please enter an email address'**
-  String get validateEmail;
-
-  /// No description provided for @validateEmailValid.
-  ///
-  /// In en, this message translates to:
-  /// **'Please enter a valid email address'**
-  String get validateEmailValid;
-
-  /// No description provided for @validatePhone.
-  ///
-  /// In en, this message translates to:
-  /// **'Please enter an phone number'**
-  String get validatePhone;
-
-  /// No description provided for @validatePhoneValid.
-  ///
-  /// In en, this message translates to:
-  /// **'Please enter a valid phone number'**
-  String get validatePhoneValid;
-
-  /// No description provided for @validatePostaleCode.
-  ///
-  /// In en, this message translates to:
-  /// **'Please enter a postal code'**
-  String get validatePostaleCode;
-
-  /// No description provided for @validatePostaleCodeValid.
-  ///
-  /// In en, this message translates to:
-  /// **'Please enter a valid postal code'**
-  String get validatePostaleCodeValid;
-
   /// No description provided for @validateText.
   ///
   /// In en, this message translates to:
   /// **'Please complete this field'**
   String get validateText;
-
-  /// No description provided for @sendSuccessfully.
-  ///
-  /// In en, this message translates to:
-  /// **'Your message has been sent successfully !'**
-  String get sendSuccessfully;
-
-  /// No description provided for @notificationBackgroundTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Oleys'**
-  String get notificationBackgroundTitle;
-
-  /// No description provided for @notificationBackgroundMessage.
-  ///
-  /// In en, this message translates to:
-  /// **'Carpool GPS tracking is underway'**
-  String get notificationBackgroundMessage;
-
-  /// No description provided for @popupchoosetypecovoit.
-  ///
-  /// In en, this message translates to:
-  /// **'Carpool for :'**
-  String get popupchoosetypecovoit;
 
   /// No description provided for @signinTitle1.
   ///
@@ -585,11 +525,11 @@ abstract class CoreLocalizations {
   /// **'Confirm'**
   String get confirm;
 
-  /// No description provided for @advice.
+  /// No description provided for @advices.
   ///
   /// In en, this message translates to:
-  /// **'Advice'**
-  String get advice;
+  /// **'Advices'**
+  String get advices;
 
   /// No description provided for @myPlants.
   ///
@@ -602,6 +542,24 @@ abstract class CoreLocalizations {
   /// In en, this message translates to:
   /// **'Username invalid'**
   String get invalidCode;
+
+  /// No description provided for @plantName.
+  ///
+  /// In en, this message translates to:
+  /// **'Plant name'**
+  String get plantName;
+
+  /// No description provided for @careAdvice.
+  ///
+  /// In en, this message translates to:
+  /// **'Care Advice'**
+  String get careAdvice;
+
+  /// No description provided for @addAdvice.
+  ///
+  /// In en, this message translates to:
+  /// **'Add advice'**
+  String get addAdvice;
 }
 
 class _CoreLocalizationsDelegate extends LocalizationsDelegate<CoreLocalizations> {

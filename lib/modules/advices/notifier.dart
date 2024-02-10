@@ -16,4 +16,8 @@ class GetAdvices extends _$GetAdvices {
     final advices = await repository.getAllAdvices();
     return advices;
   }
+
+  Future<void> refresh() async {
+    ref.refresh(advicesRepositoryProvider);
+  }
 }

@@ -1,3 +1,4 @@
+import 'package:arosa_je/core/core.dart';
 import 'package:arosa_je/core/data/entities/advice/advice.dart';
 import 'package:arosa_je/modules/advices/notifier.dart';
 import 'package:arosa_je/router/router.dart';
@@ -17,6 +18,8 @@ class _AdvicesViewState extends ConsumerState<AdvicesView> {
 
   @override
   Widget build(BuildContext context) {
+    final coreL10n = context.coreL10n;
+
     final advicesList = ref.watch(getAdvicesProvider);
 
     return advicesList.when(
@@ -30,7 +33,7 @@ class _AdvicesViewState extends ConsumerState<AdvicesView> {
 
           return Scaffold(
             appBar: AppBar(
-              title: const Text('My Plants'),
+              title: Text(coreL10n.advices),
             ),
             body: SafeArea(
               child: SingleChildScrollView(
@@ -57,11 +60,20 @@ class _AdvicesViewState extends ConsumerState<AdvicesView> {
                 ),
               ),
             ),
-            bottomNavigationBar: FilledButton(
-              child: const Text('add button'),
-              onPressed: () {
-                context.goNamed(AppRoute.addAdvice.name);
-              },
+            bottomNavigationBar: Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: FilledButton(
+                style: ButtonStyle(
+                  backgroundColor:
+                      MaterialStateProperty.all<Color>(Colors.green),
+                  foregroundColor:
+                      MaterialStateProperty.all<Color>(Colors.white),
+                ),
+                child: Text(coreL10n.addAdvice),
+                onPressed: () async {
+                  context.goNamed(AppRoute.addAdvice.name);
+                },
+              ),
             ),
           );
         }

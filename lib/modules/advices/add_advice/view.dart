@@ -20,6 +20,7 @@ class AddAdviceScreenState extends ConsumerState<AddAdviceScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final coreL10n = context.coreL10n;
     ref.watch(addAviceProvider);
 
     ref.listen(addAviceProvider, (_, next) {
@@ -52,7 +53,7 @@ class AddAdviceScreenState extends ConsumerState<AddAdviceScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Add Plant'),
+        title: Text(coreL10n.addAdvice),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -61,15 +62,19 @@ class AddAdviceScreenState extends ConsumerState<AddAdviceScreen> {
           children: [
             TextField(
               controller: nameController,
-              decoration: const InputDecoration(labelText: 'Plant Name'),
+              decoration: InputDecoration(labelText: coreL10n.plantName),
             ),
             const SizedBox(height: 16.0),
             TextField(
               controller: adviceController,
-              decoration: const InputDecoration(labelText: 'Care Advice'),
+              decoration: InputDecoration(labelText: coreL10n.careAdvice),
             ),
             const SizedBox(height: 16.0),
-            ElevatedButton(
+            FilledButton(
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(Colors.green),
+                foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
+              ),
               onPressed: () {
                 if (nameController.text.isNotEmpty &&
                     adviceController.text.isNotEmpty) {
@@ -80,7 +85,10 @@ class AddAdviceScreenState extends ConsumerState<AddAdviceScreen> {
                   // Show an error message or handle the case where input is incomplete
                 }
               },
-              child: const Text('Add Plant'),
+              child: Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: Text(coreL10n.addAdvice),
+              ),
             ),
           ],
         ),
