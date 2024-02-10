@@ -1,4 +1,5 @@
 import 'package:arosa_je/core/core.dart';
+import 'package:arosa_je/core/data/entities/plant/plant.dart';
 import 'package:arosa_je/modules/app/app_initialcenter_providers.dart';
 import 'package:arosa_je/modules/map/notifier.dart';
 import 'package:flutter/material.dart';
@@ -15,8 +16,36 @@ class MapView extends ConsumerWidget {
   final List<Marker> markers = [];
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final coreL10n = context.coreL10n;
     LatLng? initialCenter = ref.read(initialCenterProvider).value;
     final plantsList = ref.watch(allPlantsProvider);
+
+    void showAlertDialog(BuildContext context, Plant plant) {
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text(coreL10n.plantInfosSentence),
+            content: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text('${coreL10n.plantName}: ${plant.name}'),
+                Text('${coreL10n.description}: ${plant.description}'),
+              ],
+            ),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: Text(coreL10n.close),
+              ),
+            ],
+          );
+        },
+      );
+    }
 
     return plantsList.when(
       data: (plants) {
@@ -29,12 +58,7 @@ class MapView extends ConsumerWidget {
                 point: LatLng(plant.latitude!, plant.longitude!),
                 child: IconButton(
                   onPressed: () {
-                    /*Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) =>
-                                    PlantDetailScreen(id: marker.id)),
-                          );*/
+                    showAlertDialog(context, plant);
                   },
                   icon: const Image(
                     image: AssetImage('lib/assets/images/icon.png'),

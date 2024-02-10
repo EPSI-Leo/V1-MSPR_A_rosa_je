@@ -525,6 +525,12 @@ abstract class CoreLocalizations {
   /// **'Confirm'**
   String get confirm;
 
+  /// No description provided for @close.
+  ///
+  /// In en, this message translates to:
+  /// **'Close'**
+  String get close;
+
   /// No description provided for @advices.
   ///
   /// In en, this message translates to:
@@ -560,6 +566,12 @@ abstract class CoreLocalizations {
   /// In en, this message translates to:
   /// **'Add advice'**
   String get addAdvice;
+
+  /// No description provided for @plantInfosSentence.
+  ///
+  /// In en, this message translates to:
+  /// **'Plant information'**
+  String get plantInfosSentence;
 }
 
 class _CoreLocalizationsDelegate extends LocalizationsDelegate<CoreLocalizations> {

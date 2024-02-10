@@ -79,10 +79,13 @@
   "skip":"Skip",
   "continues":"Continue",
   "confirm":"Confirm",
+  "close":"Close",
   "advices":"Advices",
   "myPlants":"My plants",
   "invalidCode":"Username invalid",
   "plantName" : "Plant name",
   "careAdvice" : "Care Advice",
-  "addAdvice": "Add advice"
+  "addAdvice": "Add advice",
+  "plantName" : "Plant name",
+  "plantInfosSentence": "Plant information"
 }

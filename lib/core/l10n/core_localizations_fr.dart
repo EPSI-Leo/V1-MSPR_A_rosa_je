@@ -221,6 +221,9 @@ class CoreLocalizationsFr extends CoreLocalizations {
   String get confirm => 'Confirmer';
 
   @override
+  String get close => 'Fermer';
+
+  @override
   String get advices => 'Conseils';
 
   @override
@@ -237,4 +240,7 @@ class CoreLocalizationsFr extends CoreLocalizations {
 
   @override
   String get addAdvice => 'Ajouter un conseil';
+
+  @override
+  String get plantInfosSentence => 'Informations sur la plante';
 }

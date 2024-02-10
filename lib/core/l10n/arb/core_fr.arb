@@ -79,10 +79,13 @@
   "skip":"Passer",
   "continues":"Continuer",
   "confirm":"Confirmer",
+  "close":"Fermer",
   "advices":"Conseils",
   "myPlants":"Mes plantes",
   "invalidCode":"Identifiant invalide",
   "plantName" : "Nom de la plante",
   "careAdvice" : "Conseil",
-  "addAdvice": "Ajouter un conseil"
+  "addAdvice": "Ajouter un conseil",
+  "plantName": "Nom de la plante",
+  "plantInfosSentence": "Informations sur la plante"
 }
