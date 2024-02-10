@@ -13,6 +13,8 @@ class Plant with _$Plant {
     required String? endAt,
     required String? description,
     required String? picture,
+    required double? latitude,
+    required double? longitude,
   }) = _Plant;
 
   factory Plant.fromJson(Map<String, dynamic> json) => _$PlantFromJson(json);

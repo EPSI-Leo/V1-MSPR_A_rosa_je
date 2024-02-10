@@ -37,7 +37,6 @@ namespace Arosaje.Controllers
 
             return Ok(plant);
         }
-
         // GET: api/Plants/GetAllPlants
         [HttpGet("GetAllPlants")]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -56,8 +55,9 @@ namespace Arosaje.Controllers
                 Plants = plants
             };
 
-            return Ok(plants);
+            return Ok(response);
         }
+
 
         // POST: api/Plants/CreatePlant
         [HttpPost("CreatePlant")]

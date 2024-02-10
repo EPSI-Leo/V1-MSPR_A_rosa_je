@@ -14,6 +14,8 @@ _$PlantImpl _$$PlantImplFromJson(Map<String, dynamic> json) => _$PlantImpl(
       endAt: json['endAt'] as String?,
       description: json['description'] as String?,
       picture: json['picture'] as String?,
+      latitude: (json['latitude'] as num?)?.toDouble(),
+      longitude: (json['longitude'] as num?)?.toDouble(),
     );
 
 Map<String, dynamic> _$$PlantImplToJson(_$PlantImpl instance) =>
@@ -25,4 +27,6 @@ Map<String, dynamic> _$$PlantImplToJson(_$PlantImpl instance) =>
       'endAt': instance.endAt,
       'description': instance.description,
       'picture': instance.picture,
+      'latitude': instance.latitude,
+      'longitude': instance.longitude,
     };

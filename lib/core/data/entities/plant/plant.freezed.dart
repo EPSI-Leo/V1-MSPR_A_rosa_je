@@ -27,6 +27,8 @@ mixin _$Plant {
   String? get endAt => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
   String? get picture => throw _privateConstructorUsedError;
+  double? get latitude => throw _privateConstructorUsedError;
+  double? get longitude => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -45,7 +47,9 @@ abstract class $PlantCopyWith<$Res> {
       String? beginAt,
       String? endAt,
       String? description,
-      String? picture});
+      String? picture,
+      double? latitude,
+      double? longitude});
 }
 
 /// @nodoc
@@ -68,6 +72,8 @@ class _$PlantCopyWithImpl<$Res, $Val extends Plant>
     Object? endAt = freezed,
     Object? description = freezed,
     Object? picture = freezed,
+    Object? latitude = freezed,
+    Object? longitude = freezed,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
@@ -98,6 +104,14 @@ class _$PlantCopyWithImpl<$Res, $Val extends Plant>
           ? _value.picture
           : picture // ignore: cast_nullable_to_non_nullable
               as String?,
+      latitude: freezed == latitude
+          ? _value.latitude
+          : latitude // ignore: cast_nullable_to_non_nullable
+              as double?,
+      longitude: freezed == longitude
+          ? _value.longitude
+          : longitude // ignore: cast_nullable_to_non_nullable
+              as double?,
     ) as $Val);
   }
 }
@@ -116,7 +130,9 @@ abstract class _$$PlantImplCopyWith<$Res> implements $PlantCopyWith<$Res> {
       String? beginAt,
       String? endAt,
       String? description,
-      String? picture});
+      String? picture,
+      double? latitude,
+      double? longitude});
 }
 
 /// @nodoc
@@ -137,6 +153,8 @@ class __$$PlantImplCopyWithImpl<$Res>
     Object? endAt = freezed,
     Object? description = freezed,
     Object? picture = freezed,
+    Object? latitude = freezed,
+    Object? longitude = freezed,
   }) {
     return _then(_$PlantImpl(
       id: freezed == id
@@ -167,6 +185,14 @@ class __$$PlantImplCopyWithImpl<$Res>
           ? _value.picture
           : picture // ignore: cast_nullable_to_non_nullable
               as String?,
+      latitude: freezed == latitude
+          ? _value.latitude
+          : latitude // ignore: cast_nullable_to_non_nullable
+              as double?,
+      longitude: freezed == longitude
+          ? _value.longitude
+          : longitude // ignore: cast_nullable_to_non_nullable
+              as double?,
     ));
   }
 }
@@ -181,7 +207,9 @@ class _$PlantImpl implements _Plant {
       required this.beginAt,
       required this.endAt,
       required this.description,
-      required this.picture});
+      required this.picture,
+      required this.latitude,
+      required this.longitude});
 
   factory _$PlantImpl.fromJson(Map<String, dynamic> json) =>
       _$$PlantImplFromJson(json);
@@ -200,10 +228,14 @@ class _$PlantImpl implements _Plant {
   final String? description;
   @override
   final String? picture;
+  @override
+  final double? latitude;
+  @override
+  final double? longitude;
 
   @override
   String toString() {
-    return 'Plant(id: $id, idUser: $idUser, name: $name, beginAt: $beginAt, endAt: $endAt, description: $description, picture: $picture)';
+    return 'Plant(id: $id, idUser: $idUser, name: $name, beginAt: $beginAt, endAt: $endAt, description: $description, picture: $picture, latitude: $latitude, longitude: $longitude)';
   }
 
   @override
@@ -218,13 +250,17 @@ class _$PlantImpl implements _Plant {
             (identical(other.endAt, endAt) || other.endAt == endAt) &&
             (identical(other.description, description) ||
                 other.description == description) &&
-            (identical(other.picture, picture) || other.picture == picture));
+            (identical(other.picture, picture) || other.picture == picture) &&
+            (identical(other.latitude, latitude) ||
+                other.latitude == latitude) &&
+            (identical(other.longitude, longitude) ||
+                other.longitude == longitude));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, id, idUser, name, beginAt, endAt, description, picture);
+  int get hashCode => Object.hash(runtimeType, id, idUser, name, beginAt, endAt,
+      description, picture, latitude, longitude);
 
   @JsonKey(ignore: true)
   @override
@@ -248,7 +284,9 @@ abstract class _Plant implements Plant {
       required final String? beginAt,
       required final String? endAt,
       required final String? description,
-      required final String? picture}) = _$PlantImpl;
+      required final String? picture,
+      required final double? latitude,
+      required final double? longitude}) = _$PlantImpl;
 
   factory _Plant.fromJson(Map<String, dynamic> json) = _$PlantImpl.fromJson;
 
@@ -266,6 +304,10 @@ abstract class _Plant implements Plant {
   String? get description;
   @override
   String? get picture;
+  @override
+  double? get latitude;
+  @override
+  double? get longitude;
   @override
   @JsonKey(ignore: true)
   _$$PlantImplCopyWith<_$PlantImpl> get copyWith =>

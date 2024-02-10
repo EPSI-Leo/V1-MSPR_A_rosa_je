@@ -20,10 +20,10 @@ class _AdvicesViewState extends ConsumerState<AdvicesView> {
     return advicesList.when(
       data: (advices) {
         if (advices != null) {
-          final _data = <Item>[];
+          final data = <Item>[];
 
           for (final advice in advices.advices!) {
-            _data.add(Item(advice: advice));
+            data.add(Item(advice: advice));
           }
 
           return Scaffold(
@@ -34,12 +34,12 @@ class _AdvicesViewState extends ConsumerState<AdvicesView> {
               child: SingleChildScrollView(
                 child: ExpansionPanelList(
                   expansionCallback: (int index, bool isExpanded) {
-                    final adviceId = _data[index].advice.id!;
+                    final adviceId = data[index].advice.id!;
                     setState(() {
                       _expandedState[adviceId] = isExpanded;
                     });
                   },
-                  children: _data.map<ExpansionPanel>((Item item) {
+                  children: data.map<ExpansionPanel>((Item item) {
                     return ExpansionPanel(
                       headerBuilder: (BuildContext context, bool isExpanded) {
                         return ListTile(

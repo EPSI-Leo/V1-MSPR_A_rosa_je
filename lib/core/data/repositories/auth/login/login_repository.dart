@@ -1,6 +1,6 @@
 import 'package:arosa_je/core/data/sources/remote/auth/login/api_login.dart';
-import 'package:arosa_je/core/local/session_manager/session_manager.dart';
 import 'package:arosa_je/core/local/session_manager/secure_storage_keys.dart';
+import 'package:arosa_je/core/local/session_manager/session_manager.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'login_repository.g.dart';
@@ -34,7 +34,7 @@ class LoginRepository {
     if (response != null) {
       await sessionManager.writeSecureStorage(
         SecureStorageKeys.userInfos,
-        response.toJson().toString(),
+        response.id.toString(),
       );
     }
     return true;
