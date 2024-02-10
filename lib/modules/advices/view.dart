@@ -1,7 +1,9 @@
 import 'package:arosa_je/core/data/entities/advice/advice.dart';
 import 'package:arosa_je/modules/advices/notifier.dart';
+import 'package:arosa_je/router/router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 class AdvicesView extends ConsumerStatefulWidget {
   const AdvicesView({super.key});
@@ -54,6 +56,12 @@ class _AdvicesViewState extends ConsumerState<AdvicesView> {
                   }).toList(),
                 ),
               ),
+            ),
+            bottomNavigationBar: FilledButton(
+              child: const Text('add button'),
+              onPressed: () {
+                context.goNamed(AppRoute.addAdvice.name);
+              },
             ),
           );
         }

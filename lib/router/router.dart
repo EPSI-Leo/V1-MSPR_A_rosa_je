@@ -1,11 +1,11 @@
+import 'package:arosa_je/core/core.dart';
+import 'package:arosa_je/modules/advices/add_advice/view.dart';
 import 'package:arosa_je/modules/advices/view.dart';
 import 'package:arosa_je/modules/app/app.dart';
-import 'package:arosa_je/core/core.dart';
 import 'package:arosa_je/modules/auth/login/view.dart';
 import 'package:arosa_je/modules/auth/register/view.dart';
 import 'package:arosa_je/modules/home/view.dart';
 import 'package:arosa_je/modules/myPlants/view.dart';
-
 import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -52,6 +52,15 @@ GoRouter router(RouterRef ref) {
                       builder: (context, state) {
                         return const AdvicesView();
                       },
+                      routes: [
+                        GoRoute(
+                          path: AppRoute.addAdvice.path,
+                          name: AppRoute.addAdvice.name,
+                          builder: (context, state) {
+                            return const AddAdviceScreen();
+                          },
+                        ),
+                      ],
                     ),
                   ],
                 ),
@@ -74,5 +83,8 @@ class AppRoute {
 
   static const AppRoute userPlantList =
       AppRoute._('user-plant-list', 'user-plant-list');
+
+  //advice
   static const AppRoute advice = AppRoute._('advice', 'advice');
+  static const AppRoute addAdvice = AppRoute._('add-advice', 'add-advice');
 }

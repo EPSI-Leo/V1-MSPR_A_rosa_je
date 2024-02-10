@@ -22,4 +22,12 @@ class AdvicesRepository {
   Future<Advices?> getAllAdvices() async {
     return await api.getAllAdvices();
   }
+
+  Future<bool> postAdvice(
+    String name,
+    String advice1,
+  ) async {
+    await api.postAdvice(name, advice1);
+    return true;
+  }
 }
