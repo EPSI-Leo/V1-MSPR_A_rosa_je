@@ -27,7 +27,7 @@ abstract class ApiClient {
     T Function(Object)? deserializer,
   }) async {
     final uri = Uri.parse('$baseUrl$relativeUrl');
-
+    print(uri.toString());
     final response = await _innerClient.get(
       uri,
       headers: headers,
@@ -46,6 +46,7 @@ abstract class ApiClient {
     T Function(Object)? deserializer,
   }) async {
     final uri = Uri.parse('$baseUrl$relativeUrl');
+    print(uri.toString());
     final response = await _innerClient.post(
       uri,
       headers: headers,

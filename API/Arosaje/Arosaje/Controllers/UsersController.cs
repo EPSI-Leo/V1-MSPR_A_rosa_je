@@ -59,7 +59,7 @@ namespace Arosaje.ModelViews
             // Pour l'instant, la vérification se fait uniquement sur le nom d'utilisateur.
 
             // Retourner l'ID de l'utilisateur en tant que partie de la réponse
-            return Ok(new { Id = existingUser.Id, Message = "Connexion réussie !" });
+            return Ok(new { Id = existingUser.Id, Message = "Connexion reussie " });
         }
     
 

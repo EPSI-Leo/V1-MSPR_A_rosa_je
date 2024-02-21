@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:arosa_je/core/api_client.dart';
 import 'package:arosa_je/core/data/entities/plant/plants.dart';
 import 'package:arosa_je/core/local/session_manager/secure_storage_keys.dart';
@@ -27,11 +29,15 @@ class ApiMyPlants extends ApiClient {
   final SessionManager sessionManager;
 
   Future<Plants?> myplants() async {
-    final idUser =
+    final userInfos =
         await sessionManager.readSecureStorage(SecureStorageKeys.userInfos);
-    return this.get(
-      '/api/Plants/GetPlantsByUserId/$idUser',
-      deserializer: (json) => Plants.fromJson(json as Map<String, dynamic>),
-    );
+    if (userInfos != null) {
+      final String idUser = userInfos;
+      return this.get(
+        '/api/Plants/GetPlantsByUserId/$idUser',
+        deserializer: (json) => Plants.fromJson(json as Map<String, dynamic>),
+      );
+    }
+    return null;
   }
 }
