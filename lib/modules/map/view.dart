@@ -1,3 +1,6 @@
+import 'dart:convert';
+import 'dart:typed_data';
+
 import 'package:arosa_je/core/core.dart';
 import 'package:arosa_je/core/data/entities/plant/plant.dart';
 import 'package:arosa_je/modules/app/app_initialcenter_providers.dart';
@@ -20,6 +23,20 @@ class MapView extends ConsumerWidget {
     LatLng? initialCenter = ref.read(initialCenterProvider).value;
     final plantsList = ref.watch(allPlantsProvider);
 
+    Image decodeBase64Image(String base64ImageData) {
+      // Decode base64 image data
+      List<int> imageBytes = base64.decode(base64ImageData);
+
+      // Convert to Uint8List
+      Uint8List uint8List = Uint8List.fromList(imageBytes);
+
+      // Create an Image widget
+      return Image.memory(
+        uint8List,
+        fit: BoxFit.cover, // Adjust the fit as needed
+      );
+    }
+
     void showAlertDialog(BuildContext context, Plant plant) {
       showDialog(
         context: context,
@@ -32,6 +49,8 @@ class MapView extends ConsumerWidget {
               children: [
                 Text('${coreL10n.plantName}: ${plant.name}'),
                 Text('${coreL10n.description}: ${plant.description}'),
+                //TODO add image
+                decodeBase64Image(plant.picture!)
               ],
             ),
             actions: [
@@ -68,7 +87,8 @@ class MapView extends ConsumerWidget {
             );
           }
         }
-        return map(const LatLng(45.54705, 5.97151), markers); // initialCenter!
+        return map(initialCenter!,
+            markers); //TODO initialCenter!  const LatLng(45.54705, 5.97151),
       },
       loading: () => const Center(
         child: Center(
@@ -77,7 +97,7 @@ class MapView extends ConsumerWidget {
       ),
       error: (error, stackTrace) {
         printDebug(error.toString());
-        return map(const LatLng(45.54705, 5.97151), markers); // initialCenter!
+        return map(initialCenter!, markers); // initialCenter!
       },
     );
   }

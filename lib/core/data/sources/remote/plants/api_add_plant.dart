@@ -5,6 +5,7 @@ import 'package:arosa_je/core/api_client.dart';
 import 'package:arosa_je/core/core.dart';
 import 'package:arosa_je/core/local/session_manager/secure_storage_keys.dart';
 import 'package:arosa_je/core/local/session_manager/session_manager.dart';
+import 'package:camera/camera.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:http/http.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -35,31 +36,48 @@ class ApiAddPlants extends ApiClient {
     String beginAt,
     String endAt,
     String description,
-    picture,
+    XFile picture,
   ) async {
     final currentLocation = await Geolocator.getCurrentPosition(
       desiredAccuracy: LocationAccuracy.high,
     );
     final idUser =
         await sessionManager.readSecureStorage(SecureStorageKeys.userInfos);
+
+    // Encode image bytes
+    String base64Image = await encodeImage(picture);
+
     var body = {
-      "id": null,
+      "id": "0",
       "idUser": "$idUser",
       "name": name,
       "beginAt": beginAt,
       "endAt": endAt,
       "description": description,
-      "picture": null,
+      "picture": base64Image,
       "latitude": currentLocation.latitude,
       "longitude": currentLocation.longitude,
     };
     printDebug(body.toString());
-    return this.post('/api/Plants/CreatePlant',
-        headers: {
-          HttpHeaders.contentTypeHeader: 'application/json; charset=UTF-8',
-        },
-        body: jsonEncode(body), deserializer: (json) {
-      return true;
-    });
+
+    return this.post(
+      '/api/Plants/CreatePlant',
+      headers: {
+        HttpHeaders.contentTypeHeader: 'application/json; charset=UTF-8',
+      },
+      body: jsonEncode(body),
+      deserializer: (json) {
+        return true;
+      },
+    );
+  }
+
+  Future<String> encodeImage(XFile picture) async {
+    // Convert XFile to File
+    File imageFile = File(picture.path);
+
+    // Convert image file to Base64
+    List<int> imageBytes = await imageFile.readAsBytes();
+    return base64Encode(imageBytes);
   }
 }

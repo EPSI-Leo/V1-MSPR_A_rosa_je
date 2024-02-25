@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Arosaje.ModelViews;
+namespace Arosaje.Entities;
 
 public partial class Advice
 {

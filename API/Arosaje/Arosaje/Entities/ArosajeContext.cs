@@ -22,15 +22,15 @@ public partial class ArosajeContext : DbContext
 
     public virtual DbSet<User> Users { get; set; }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) { }
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    { }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Advice>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PRIMARY");
-
             entity
+                .HasNoKey()
                 .ToTable("advices");
 
             entity.HasIndex(e => e.IdUser, "id_user");
@@ -56,38 +56,25 @@ public partial class ArosajeContext : DbContext
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
 
-            entity
-                .ToTable("plants");
+            entity.ToTable("plants");
 
-            entity.HasIndex(e => e.IdUser, "id_user");
-
+            entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.BeginAt)
                 .HasColumnType("date")
                 .HasColumnName("beginAt");
-            entity.Property(e => e.Description)
-                .HasColumnType("text")
-                .HasColumnName("description");
+            entity.Property(e => e.Description).HasColumnName("description");
             entity.Property(e => e.EndAt)
                 .HasColumnType("date")
                 .HasColumnName("endAt");
-            entity.Property(e => e.Id)
-                .HasMaxLength(191)
-                .HasColumnName("id");
             entity.Property(e => e.IdUser)
-                .HasMaxLength(191)
+                .HasMaxLength(255)
                 .HasColumnName("id_user");
+            entity.Property(e => e.Latitude).HasColumnName("latitude");
+            entity.Property(e => e.Longitude).HasColumnName("longitude");
             entity.Property(e => e.Name)
                 .HasMaxLength(255)
                 .HasColumnName("name");
-            entity.Property(e => e.Picture)
-                .HasColumnType("blob")
-                .HasColumnName("picture");
-            entity.Property(entity => entity.Latitude)
-                .HasColumnType("double")
-                .HasColumnName("latitude");
-            entity.Property(entity => entity.Longitude)
-                .HasColumnType("double")
-                .HasColumnName("longitude");
+            entity.Property(e => e.Picture).HasColumnName("picture");
         });
 
         modelBuilder.Entity<User>(entity =>

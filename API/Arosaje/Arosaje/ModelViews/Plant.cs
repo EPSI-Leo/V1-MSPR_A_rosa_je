@@ -1,28 +1,27 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.EntityFrameworkCore;
 
-namespace Arosaje.ModelViews
+namespace Arosaje.ModelViews;
+
+public partial class Plant
 {
-    public partial class Plant
-    {
-        
-        public string? Id { get; set; }
+    [Key]
+    public string Id { get; set; } = null!;
 
-       
-        public string? IdUser { get; set; }
+    public string IdUser { get; set; } = null!;
 
-        public string? Name { get; set; }
+    public string Name { get; set; } = null!;
 
-        public DateTime? BeginAt { get; set; }
+    public DateTime BeginAt { get; set; }
 
-        public DateTime? EndAt { get; set; }
+    public DateTime EndAt { get; set; }
 
-        public string? Description { get; set; }
+    public string Description { get; set; } = null!;
 
-        public byte[]? Picture { get; set; }
-        public double Latitude { get; set; }
-        public double Longitude { get; set; }
-    }
+    public byte[] Picture { get; set; } = null!;
+
+    public double Latitude { get; set; }
+
+    public double Longitude { get; set; }
 }

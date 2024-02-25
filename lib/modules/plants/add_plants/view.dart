@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:arosa_je/core/api_client_exception.dart';
 import 'package:arosa_je/core/core.dart';
 import 'package:arosa_je/modules/auth/login/notifier.dart';
@@ -34,6 +32,7 @@ class _AddPlantViewState extends ConsumerState<AddPlantView> {
     _dateStart = TextEditingController();
     _dateEnd = TextEditingController();
     _descriptionController = TextEditingController();
+
     super.initState();
   }
 
@@ -155,7 +154,7 @@ class _AddPlantViewState extends ConsumerState<AddPlantView> {
                                     _dateStart.text,
                                     _dateEnd.text,
                                     _descriptionController.text,
-                                    File(widget.picture.path),
+                                    widget.picture,
                                   );
                             }
                           },

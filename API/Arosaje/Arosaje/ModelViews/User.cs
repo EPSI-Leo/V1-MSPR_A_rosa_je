@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Arosaje.Entities;
+namespace Arosaje.ModelViews;
 
 public partial class User
 {
