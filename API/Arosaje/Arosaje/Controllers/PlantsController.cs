@@ -31,7 +31,7 @@ namespace Arosaje.Controllers
 
             if (plant == null)
             {
-                return NotFound("Plante non trouvée.");
+                return NotFound("Plante non trouvee.");
             }
 
 
@@ -46,7 +46,7 @@ namespace Arosaje.Controllers
 
             if (plants == null || plants.Count == 0)
             {
-                return NotFound("Aucune plante trouvée.");
+                return NotFound("Aucune plante trouvee.");
             }
 
             var response = new
@@ -75,7 +75,7 @@ namespace Arosaje.Controllers
             await _context.SaveChangesAsync();
 
             // Return the response with the ID of the plant
-            return CreatedAtAction(nameof(GetPlantById), new { id = plant.Id }, new { Id = plant.Id, Message = "Plante créée avec succès !" });
+            return CreatedAtAction(nameof(GetPlantById), new { id = plant.Id }, new { Id = plant.Id, Message = "Plante creee avec succes " });
         }
 
         [HttpPut("{id}")]
@@ -121,14 +121,14 @@ namespace Arosaje.Controllers
 
             if (plant == null)
             {
-                return NotFound("Plante non trouvée.");
+                return NotFound("Plante non trouvee.");
             }
 
             // Remove the plant from the database
             _context.Plants.Remove(plant);
             await _context.SaveChangesAsync();
 
-            return Ok(new { Message = "Plante supprimée avec succès !" });
+            return Ok(new { Message = "Plante supprimee avec succes !" });
         }
 
         // GET: api/Plants/GetPlantsByUserId/{userId}
@@ -141,7 +141,7 @@ namespace Arosaje.Controllers
 
             if (plants == null || plants.Count == 0)
             {
-                return NotFound("Aucune plante trouvée pour cet utilisateur.");
+                return NotFound("Aucune plante trouvee pour cet utilisateur.");
             }
 
             var response = new
