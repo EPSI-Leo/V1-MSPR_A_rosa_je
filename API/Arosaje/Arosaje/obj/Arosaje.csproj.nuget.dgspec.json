@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\alexi\\OneDrive\\Bureau\\V1-MSPR_A_rosa_je\\API\\Arosaje\\Arosaje\\Arosaje.csproj": {}
+    "C:\\Users\\Alexis\\Desktop\\V1-MSPR_A_rosa_je\\API\\Arosaje\\Arosaje\\Arosaje.csproj": {}
   },
   "projects": {
-    "C:\\Users\\alexi\\OneDrive\\Bureau\\V1-MSPR_A_rosa_je\\API\\Arosaje\\Arosaje\\Arosaje.csproj": {
+    "C:\\Users\\Alexis\\Desktop\\V1-MSPR_A_rosa_je\\API\\Arosaje\\Arosaje\\Arosaje.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\alexi\\OneDrive\\Bureau\\V1-MSPR_A_rosa_je\\API\\Arosaje\\Arosaje\\Arosaje.csproj",
+        "projectUniqueName": "C:\\Users\\Alexis\\Desktop\\V1-MSPR_A_rosa_je\\API\\Arosaje\\Arosaje\\Arosaje.csproj",
         "projectName": "Arosaje",
-        "projectPath": "C:\\Users\\alexi\\OneDrive\\Bureau\\V1-MSPR_A_rosa_je\\API\\Arosaje\\Arosaje\\Arosaje.csproj",
-        "packagesPath": "C:\\Users\\alexi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\alexi\\OneDrive\\Bureau\\V1-MSPR_A_rosa_je\\API\\Arosaje\\Arosaje\\obj\\",
+        "projectPath": "C:\\Users\\Alexis\\Desktop\\V1-MSPR_A_rosa_je\\API\\Arosaje\\Arosaje\\Arosaje.csproj",
+        "packagesPath": "C:\\Users\\Alexis\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Alexis\\Desktop\\V1-MSPR_A_rosa_je\\API\\Arosaje\\Arosaje\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\alexi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Alexis\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
