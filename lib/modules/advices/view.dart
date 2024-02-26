@@ -32,6 +32,7 @@ class _AdvicesViewState extends ConsumerState<AdvicesView> {
           }
 
           return Scaffold(
+            backgroundColor: Colors.grey[200],
             appBar: AppBar(
               title: Text(coreL10n.advices),
             ),

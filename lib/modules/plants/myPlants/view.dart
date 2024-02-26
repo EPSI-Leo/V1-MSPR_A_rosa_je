@@ -1,3 +1,6 @@
+import 'dart:convert';
+import 'dart:typed_data';
+
 import 'package:arosa_je/core/data/entities/plant/plant.dart';
 import 'package:arosa_je/modules/plants/myPlants/notifier.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +16,20 @@ class MyPlants extends ConsumerStatefulWidget {
 class _MyPlantsState extends ConsumerState<MyPlants> {
   final Map<String, bool> _expandedState = {};
 
+  Image decodeBase64Image(String base64ImageData) {
+    // Decode base64 image data
+    List<int> imageBytes = base64.decode(base64ImageData);
+
+    // Convert to Uint8List
+    Uint8List uint8List = Uint8List.fromList(imageBytes);
+
+    // Create an Image widget
+    return Image.memory(
+      uint8List,
+      fit: BoxFit.cover, // Adjust the fit as needed
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final plantsList = ref.watch(myPlantsProvider);
@@ -27,8 +44,9 @@ class _MyPlantsState extends ConsumerState<MyPlants> {
           }
 
           return Scaffold(
+            backgroundColor: Colors.grey[200],
             appBar: AppBar(
-              title: const Text('My Plants'),
+              title: const Text('My Plants'), //TODO localizations
             ),
             body: SafeArea(
               child: SingleChildScrollView(
@@ -47,8 +65,8 @@ class _MyPlantsState extends ConsumerState<MyPlants> {
                         );
                       },
                       body: ListTile(
-                        title: Text(item.plant.description!),
-                      ),
+                          title: Text(item.plant.description!),
+                          subtitle: decodeBase64Image(item.plant.picture!)),
                       isExpanded: _expandedState[item.plant.id!] ?? false,
                     );
                   }).toList(),
