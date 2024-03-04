@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Arosaje")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9157d946f9a20968843401e99d43f7eb877ddfb5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+aad149eaeb8b0f81a6fec950f21fd9d8188fed34")]
 [assembly: System.Reflection.AssemblyProductAttribute("Arosaje")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Arosaje")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
