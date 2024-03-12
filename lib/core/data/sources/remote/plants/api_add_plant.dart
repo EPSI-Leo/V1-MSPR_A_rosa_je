@@ -73,10 +73,8 @@ class ApiAddPlants extends ApiClient {
   }
 
   Future<String> encodeImage(XFile picture) async {
-    // Convert XFile to File
     File imageFile = File(picture.path);
 
-    // Convert image file to Base64
     List<int> imageBytes = await imageFile.readAsBytes();
     return base64Encode(imageBytes);
   }

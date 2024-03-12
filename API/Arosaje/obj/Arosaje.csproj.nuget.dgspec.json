@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Alexis\\Desktop\\V1-MSPR_A_rosa_je\\API\\Arosaje\\Arosaje.csproj": {}
+    "C:\\Users\\alexi\\OneDrive\\Bureau\\V1-MSPR_A_rosa_je\\API\\Arosaje\\Arosaje.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Alexis\\Desktop\\V1-MSPR_A_rosa_je\\API\\Arosaje\\Arosaje.csproj": {
+    "C:\\Users\\alexi\\OneDrive\\Bureau\\V1-MSPR_A_rosa_je\\API\\Arosaje\\Arosaje.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Alexis\\Desktop\\V1-MSPR_A_rosa_je\\API\\Arosaje\\Arosaje.csproj",
+        "projectUniqueName": "C:\\Users\\alexi\\OneDrive\\Bureau\\V1-MSPR_A_rosa_je\\API\\Arosaje\\Arosaje.csproj",
         "projectName": "Arosaje",
-        "projectPath": "C:\\Users\\Alexis\\Desktop\\V1-MSPR_A_rosa_je\\API\\Arosaje\\Arosaje.csproj",
-        "packagesPath": "C:\\Users\\Alexis\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Alexis\\Desktop\\V1-MSPR_A_rosa_je\\API\\Arosaje\\obj\\",
+        "projectPath": "C:\\Users\\alexi\\OneDrive\\Bureau\\V1-MSPR_A_rosa_je\\API\\Arosaje\\Arosaje.csproj",
+        "packagesPath": "C:\\Users\\alexi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\alexi\\OneDrive\\Bureau\\V1-MSPR_A_rosa_je\\API\\Arosaje\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Alexis\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\alexi\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -88,7 +88,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.201/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

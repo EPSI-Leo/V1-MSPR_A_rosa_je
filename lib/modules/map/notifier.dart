@@ -14,6 +14,7 @@ class AllPlants extends _$AllPlants {
   Future<Plants?> fetchAllPlants() async {
     final repository = ref.read(allPlantsRepositoryProvider);
     final plants = await repository.allPlants();
+    print(await plants.toString());
     return plants;
   }
 }

@@ -65,8 +65,9 @@ class _MyPlantsState extends ConsumerState<MyPlants> {
                         );
                       },
                       body: ListTile(
-                          title: Text(item.plant.description!),
-                          subtitle: decodeBase64Image(item.plant.picture!)),
+                        title: Text(item.plant.description!),
+                        subtitle: decodeBase64Image(item.plant.picture!),
+                      ),
                       isExpanded: _expandedState[item.plant.id!] ?? false,
                     );
                   }).toList(),

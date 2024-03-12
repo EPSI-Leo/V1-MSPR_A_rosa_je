@@ -450,3 +450,12 @@ C:\Users\Alexis\Desktop\V1-MSPR_A_rosa_je\API\Arosaje\obj\Debug\net8.0\Arosaje.s
 C:\Users\Alexis\Desktop\V1-MSPR_A_rosa_je\API\Arosaje\obj\Debug\net8.0\Arosaje.dll
 C:\Users\Alexis\Desktop\V1-MSPR_A_rosa_je\API\Arosaje\obj\Debug\net8.0\refint\Arosaje.dll
 C:\Users\Alexis\Desktop\V1-MSPR_A_rosa_je\API\Arosaje\obj\Debug\net8.0\Arosaje.pdb
+C:\Users\alexi\OneDrive\Bureau\V1-MSPR_A_rosa_je\API\Arosaje\obj\Debug\net8.0\Arosaje.csproj.AssemblyReference.cache
+C:\Users\alexi\OneDrive\Bureau\V1-MSPR_A_rosa_je\API\Arosaje\obj\Debug\net8.0\Arosaje.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\alexi\OneDrive\Bureau\V1-MSPR_A_rosa_je\API\Arosaje\obj\Debug\net8.0\Arosaje.AssemblyInfoInputs.cache
+C:\Users\alexi\OneDrive\Bureau\V1-MSPR_A_rosa_je\API\Arosaje\obj\Debug\net8.0\Arosaje.AssemblyInfo.cs
+C:\Users\alexi\OneDrive\Bureau\V1-MSPR_A_rosa_je\API\Arosaje\obj\Debug\net8.0\Arosaje.csproj.CoreCompileInputs.cache
+C:\Users\alexi\OneDrive\Bureau\V1-MSPR_A_rosa_je\API\Arosaje\obj\Debug\net8.0\Arosaje.sourcelink.json
+C:\Users\alexi\OneDrive\Bureau\V1-MSPR_A_rosa_je\API\Arosaje\obj\Debug\net8.0\Arosaje.dll
+C:\Users\alexi\OneDrive\Bureau\V1-MSPR_A_rosa_je\API\Arosaje\obj\Debug\net8.0\refint\Arosaje.dll
+C:\Users\alexi\OneDrive\Bureau\V1-MSPR_A_rosa_je\API\Arosaje\obj\Debug\net8.0\Arosaje.pdb

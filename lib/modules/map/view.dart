@@ -33,7 +33,7 @@ class MapView extends ConsumerWidget {
       // Create an Image widget
       return Image.memory(
         uint8List,
-        fit: BoxFit.cover, // Adjust the fit as needed
+        fit: BoxFit.cover,
       );
     }
 
@@ -49,8 +49,12 @@ class MapView extends ConsumerWidget {
               children: [
                 Text('${coreL10n.plantName}: ${plant.name}'),
                 Text('${coreL10n.description}: ${plant.description}'),
-                //TODO add image
-                decodeBase64Image(plant.picture!)
+                // Display each image in the list
+                if (plant.picture is String)
+                  decodeBase64Image(plant.picture as String),
+                if (plant.picture is List<String>)
+                  for (String base64ImageData in plant.picture as List<String>)
+                    decodeBase64Image(base64ImageData),
               ],
             ),
             actions: [
